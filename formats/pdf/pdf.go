@@ -3,6 +3,7 @@ package pdf
 import (
 	"crypto/sha1"
 	"fmt"
+	"github.com/gen2brain/go-fitz"
 	"image"
 	"io"
 	"io/ioutil"
@@ -26,11 +27,22 @@ func (e *pdf) Book() *booklist.Book {
 }
 
 func (e *pdf) HasCover() bool {
-	return false
+	doc, err := fitz.New(e.book.FilePath)
+	if err != nil {
+		panic(err)
+	}
+	defer doc.Close()
+	return doc.NumPage() > 0
 }
 
 func (e *pdf) GetCover() (i image.Image, err error) {
-	return nil, errors.New("no cover")
+	doc, err := fitz.New(e.book.FilePath)
+	if err != nil {
+		panic(err)
+	}
+	defer doc.Close()
+
+	return doc.Image(0)
 }
 
 func load(filename string) (bi formats.BookInfo, ferr error) {

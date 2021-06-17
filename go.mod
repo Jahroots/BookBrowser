@@ -9,6 +9,7 @@ require (
 	github.com/davecgh/go-spew v1.1.1-0.20171005155431-ecdeabc65495 // indirect
 	github.com/eknkc/amber v0.0.0-20171010120322-cdade1c07385 // indirect
 	github.com/geek1011/kepubify v2.3.2-0.20190207015944-d08efa025c00+incompatible
+	github.com/gen2brain/go-fitz v1.18.0 // indirect
 	github.com/gobuffalo/packr v1.13.1
 	github.com/julienschmidt/httprouter v1.1.1-0.20170430222011-975b5c4c7c21
 	github.com/mattn/go-zglob v0.0.0-20170124115757-95345c4e1c0e

@@ -1,7 +1,6 @@
-FROM golang:1.13-alpine AS build
+FROM golang AS build
 ADD . /src
 WORKDIR /src
-RUN apk add --no-cache git
 RUN go mod download
 RUN go build .
 
